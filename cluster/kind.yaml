@@ -1,0 +1,17 @@
+# CKA practice lab cluster: 1 control-plane + 2 workers.
+# Default CNI is disabled so Calico can be installed and NetworkPolicies
+# are actually enforced. podSubnet matches Calico's default IP pool.
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: cka
+networking:
+  disableDefaultCNI: true
+  podSubnet: "192.168.0.0/16"
+  serviceSubnet: "10.96.0.0/16"
+nodes:
+  - role: control-plane
+    image: kindest/node:v1.35.8
+  - role: worker
+    image: kindest/node:v1.35.8
+  - role: worker
+    image: kindest/node:v1.35.8

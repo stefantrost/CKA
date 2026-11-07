@@ -1,0 +1,3 @@
+# Everything the lab generates at runtime.
+.state/
+answers/
